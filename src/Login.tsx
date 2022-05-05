@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
 
-  
+
 function Login() {
 
     const [email, setemail] = useState('')
@@ -12,6 +10,7 @@ function Login() {
     const [showErr, setshowErr] = useState('')
     const [showPassErr, setshowPassErr] = useState('')
     const [showEmailErr, setshowEmailErr] = useState('')
+    const [showToastMessage, setshowToastMessage] = useState('')
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users').then(res => (res.json())).then(
@@ -23,25 +22,30 @@ function Login() {
         if (password != "12345678") {
             setshowPassErr('Please enter valid password')
         }
-        else{
+        else {
             let count = 0
-            apiData.map((item:any) => {
-                if(email.toLowerCase() == item?.email.toLowerCase()){
-                    
+            apiData.map((item: any) => {
+                if (email.toLowerCase() == item?.email.toLowerCase()) {
+
                     count++
-                    
+
                 }
             })
 
-            if(count == 0){
+            if (count == 0) {
                 setshowEmailErr('Please enter valid email id')
-                toast.error('Please provide valid details')
+                setshowToastMessage('Please provide valid details')
             }
-            else{
+            else {
                 setshowEmailErr('')
-                toast.success('Logged In Successfully')
-
+                setemail('')
+                setpassword('')
+                setshowToastMessage('Logged In Successfully')
             }
+
+            setTimeout(() => {
+                setshowToastMessage('')
+            }, 3000);
         }
 
 
@@ -80,7 +84,7 @@ function Login() {
                                     <div className="mb-3 row justify-content-center align-items-center">
                                         <label htmlFor="staticEmail" className="col-sm-3 custom" >Email</label>
                                         <div className="col-sm-9">
-                                            <input type="text" className="form-control custom-form text-white" value={email} onChange={(e) => {setemail(e.target.value); setshowEmailErr('')}} />
+                                            <input type="text" className="form-control custom-form text-white" value={email} onChange={(e) => { setemail(e.target.value); setshowEmailErr('') }} />
 
                                             {showEmailErr ?
                                                 <div className='text-danger'>{showEmailErr}</div>
@@ -93,7 +97,7 @@ function Login() {
                                     <div className="mb-3 row">
                                         <label htmlFor="inputPassword" className="col-sm-3 custom">Password</label>
                                         <div className="col-sm-9">
-                                            <input type="password" className="form-control custom-form text-white" value={password} onChange={(e) => {setpassword(e.target.value); setshowPassErr('')}} />
+                                            <input type="password" className="form-control custom-form text-white" value={password} onChange={(e) => { setpassword(e.target.value); setshowPassErr('') }} />
                                             {showPassErr ?
                                                 <div className='text-danger'>{showPassErr}</div>
                                                 :
@@ -118,6 +122,22 @@ function Login() {
                     </div>
                 </div>
             </div>
+            {
+                showToastMessage ?
+                    <div className='position-fixed bottom-0 start-50  p-6 mb-4'>
+                        <div style={{height: '60px'}} className={`toast align-items-center show text-white ${showEmailErr || showPassErr ? 'bg-danger' : 'bg-primary'}`} role="alert" aria-live="assertive" aria-atomic="true">
+                            <div className="d-flex align-items-center h-100">
+                                <div className="toast-body">
+                                    {showToastMessage}
+                                </div>
+                                <button type="button" className="btn-close me-2 m-auto btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    </div>
+                    :
+                    null
+            }
+
         </section>
 
     );
