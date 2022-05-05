@@ -1,0 +1,11 @@
+@media(max-width:991px) {
+    .sign {
+        height: auto;
+        padding: 20px;
+    }
+    .reg {
+        /* background-color: #fff; */
+        height: auto;
+        padding: 20px;
+    }
+}

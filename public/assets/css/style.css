@@ -1,0 +1,136 @@
+body {
+    overflow-y: scroll;
+    font-family: "or";
+}
+
+@font-face {
+    font-family: "or";
+    src: url("../font/overpass-regular.otf")
+}
+
+@font-face {
+    font-family: "ob";
+    src: url("../font/overpass-bold.otf")
+}
+
+@font-face {
+    font-family: "ol";
+    src: url("../font/overpass-light.otf")
+}
+
+.navbar-dark .navbar-brand.logo {
+    font-family: "ob";
+    color: #51189A;
+    font-size: 24px;
+}
+
+.navbar-dark .navbar-nav .nav-link.menu {
+    color: #00B6FF;
+    font-size: 16px;
+}
+
+.pb-28 {
+    padding-bottom: 28px;
+}
+
+.ob {
+    font-family: "ob";
+}
+
+.title {
+    font-size: 60px;
+    font-family: 'ob';
+    color: #4A4A4A;
+    margin-bottom: 73px;
+}
+
+.details {
+    font-size: 16px;
+    font-family: 'or';
+    color: #4A4A4A;
+}
+
+.reg {
+    background-color: #fff;
+    /* height: 350px; */
+    padding: 20px;
+}
+
+.sign {
+    background-color: #51189A;
+    /* height: 350px; */
+    padding: 0px 40px;
+    padding: 20px;
+}
+
+.reg-title {
+    font-size: 30px;
+    font-family: 'ob';
+    padding-top: 64px;
+}
+
+.sign-title {
+    font-size: 30px;
+    font-family: 'ob';
+    padding-top: 64px;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+label.custom {
+    font-size: 16px;
+    color: #fff;
+    font-family: 'or';
+}
+
+input.form-control.custom-form {
+    border: none;
+    border-bottom: 1px solid #D8D8D8;
+    background-color: transparent;
+    border-radius: 0px;
+    padding: 0px;
+}
+
+.forgot {
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'ol';
+}
+
+button.btn.btn-login {
+    /* padding: 0px; */
+    background-color: #00B6FF;
+    border-radius: 0px;
+    /* height: 40px;
+    width: 120px; */
+    color: #fff;
+}
+
+.become {
+    margin-top: 180px;
+}
+
+img.img-fluid.bg-img {
+    position: absolute;
+    right: 0%;
+    z-index: -1;
+    margin-top: 252px;
+}
+
+
+/* section.section-content.py-5 {
+    background-image: url(../img/bg.png);
+    height: 100vh;
+    float: right;
+} */
+
+
+/* .logo {
+    font-family: "ob";
+    color: #51189A;
+    font-size: 24px;
+} */
+
+
+/* nav.navbar {
+    box-shadow: 0px 5px 20px rgb(0 0 0 / 10%);
+} */
